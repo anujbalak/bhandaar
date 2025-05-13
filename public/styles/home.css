@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(255, 243, 229);
+    font-family: "Libre Baskerville", serif;
+    font-weight: 400;
+    font-style: normal;
+    display: grid;
+    min-height: 100vh;
+    grid-template-rows: max-content;
+}
+
+.account-img, svg {
+    cursor: pointer;
+}
+
+a {
+    all: unset;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+a:hover, a:focus {
+    text-decoration: underline;
+    text-decoration-color: currentColor;
+    text-decoration-thickness: 2px;
+}
+
+.login-page, .sign-up-page {
+    display: grid;
+    place-self: center;
+}
+
+.sign-up-page form, .login-page form {
+    display: grid;
+    gap: 1em;
+}

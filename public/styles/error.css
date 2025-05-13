@@ -1,0 +1,10 @@
+.error::before {
+    content: '⚠ ';
+    font-size: 1.2rem;
+    color: rgb(114, 0, 0);
+}
+
+.error {
+    font-size: 1.2rem;
+    color: rgb(46, 27, 27);
+}

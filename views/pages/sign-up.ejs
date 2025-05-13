@@ -1,0 +1,40 @@
+<%- include('../partials/header', {title: 'Home'}) %>
+    <main class="sign-up-page">
+        <form action="/sign-up" method="post">
+            <section class="input-section">
+                <label for="name">Name</label>
+                <input 
+                    type="text" 
+                    name="name" 
+                    id="name"
+                    value="<% if (locals.name) { %><%= name %><% } %>"
+                >
+                <%- include('../partials/error', {error_path: 'name'}) %> 
+            </section>
+            <section class="input-section">
+                <label for="email">Email</label>
+                <input 
+                    type="email" 
+                    name="email" 
+                    id="email"
+                    value="<% if (locals.email) { %><%= email %><% } %>"
+                >
+                <%- include('../partials/error', {error_path: 'email'}) %>
+            </section>
+            <section class="input-section">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password">
+                <%- include('../partials/error', {error_path: 'password'}) %>
+            </section>
+            <section class="input-section">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" name="confirmPassword", id="confirmPassword">
+                <%- include('../partials/error', {error_path: 'confirmPassword'}) %>
+            </section>
+            <button type="submit" class="accent">Sign up</button>
+        </form>
+        <div class="redirect">
+            <p>Already has an account? <a href="/login">Login</a></p>
+        </div>
+    </main>
+<%- include('../partials/footer') %>

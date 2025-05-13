@@ -1,0 +1,20 @@
+button {
+    padding: 10px 1em;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    border: none;
+    font-family: inherit;
+}
+
+button.accent {
+    background-color: #0066da;
+    color: snow;
+}
+
+button.normal {
+    background-color: rgb(228, 228, 228);
+}
+
+button:focus, button:hover {
+    outline: 2px solid rgb(78, 78, 78);
+}

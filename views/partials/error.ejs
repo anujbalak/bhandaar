@@ -1,0 +1,9 @@
+<% if (locals.errors) { %>
+    <div class="error-container">
+        <% errors.forEach(error => { %>
+            <% if (error.path === locals.error_path) { %> 
+                <p class="error"><%= error.msg %> </p> 
+            <% } %> 
+        <% }); %>     
+    </div>
+<% }; %> 

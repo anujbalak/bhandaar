@@ -1,0 +1,22 @@
+input {
+    background-color: transparent;
+    padding: 10px 1em;
+    font-family: inherit;
+    font-size: 1.2rem;
+    border: black solid 2px;
+    border-radius: 5px;
+    background-color: rgb(238, 226, 211);
+}
+
+.input-section {
+    display: grid;
+    gap: 0.5em;
+}
+
+.redirect {
+    margin-top: 1em;
+}
+
+.redirect a {
+    color: #0066da;
+}

@@ -1,0 +1,24 @@
+<%- include('../partials/header', {title: 'Home'}) %>
+
+    <main class="login-page">
+        <form action="/login" method="post">
+            <section class="input-section">
+                <label for="email">Email</label>
+                <input 
+                    type="email" 
+                    name="email" 
+                    id="email" 
+                >
+            </section>
+            <section class="input-section">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password">
+            </section>
+            <button type="submit" class="accent">Login</button>
+        </form>
+        <div class="redirect">
+            <p>New here? <a href="/sign-up">Sign Up</a></p>
+        </div>
+    </main>
+
+<%- include('../partials/footer') %>

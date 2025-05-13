@@ -1,0 +1,21 @@
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 1em;
+    height: min-content;
+}
+
+.title-container {
+    margin-left: 1em;
+}
+
+.title {
+    font-size: 3rem;
+    color: #0066da;
+}
+
+nav {
+    display: flex;
+    gap: 1em;
+}

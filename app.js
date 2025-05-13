@@ -1,0 +1,72 @@
+import path from 'node:path'
+import url from 'node:url'
+import 'dotenv/config'
+
+import express from 'express'
+const app = express();
+
+import indexRouter from './routes/indexRouter.js';
+import loginRouter from './routes/loginRouter.js';
+import signupRouter from './routes/signupRouter.js';
+
+import session from 'express-session';
+import { PrismaClient } from './generated/prisma/client.js';
+import { PrismaSessionStore } from '@quixo3/prisma-session-store';
+import passport from 'passport';
+import local from './passport/strategy.js';
+import { getUser } from './db/queries.js';
+import logoutRouter from './routes/logoutRouter.js';
+
+const __filename = url.fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename);
+app.set('view engine', 'ejs')
+app.set('views', path.join(__dirname, 'views'))
+app.use(express.urlencoded({extended: false}))
+
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(session({
+    cookie: {
+        maxAge: 15 * 24 * 60 * 60 * 1000,
+    },
+    secret: process.env.SECRET,
+    resave: true,
+    saveUninitialized: true,
+    store: new PrismaSessionStore(
+        new PrismaClient(),
+        {
+            checkPeriod: 2 * 60 * 1000,
+            dbRecordIdIsSessionId: true,
+            dbRecordIdFunction: undefined,
+        },
+    ),
+}))
+app.use(passport.session());
+
+app.use((req, res, next) => {
+    res.locals.user = req.user;
+    next() 
+})
+
+app.use('/', indexRouter);
+app.use('/login', loginRouter);
+app.use('/sign-up', signupRouter);
+
+app.use('/logout', logoutRouter);
+
+passport.use(local)
+passport.serializeUser((user, done) => {
+    done(null, user.id)
+})
+
+passport.deserializeUser(async (id, done) => {
+    try {
+        const user = await getUser({id})
+        done(null, user)
+    } catch (err) {
+        done(err);
+    }
+})
+
+const port = process.env.PORT
+app.listen(port, () => console.log('App listening at port', port));
