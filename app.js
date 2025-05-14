@@ -14,8 +14,9 @@ import { PrismaClient } from './generated/prisma/client.js';
 import { PrismaSessionStore } from '@quixo3/prisma-session-store';
 import passport from 'passport';
 import local from './passport/strategy.js';
-import { getUser } from './db/queries.js';
+import { getAllFiles, getUser } from './db/queries.js';
 import logoutRouter from './routes/logoutRouter.js';
+import uploadRouter from './routes/uploadRouter.js';
 
 const __filename = url.fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename);
@@ -45,12 +46,20 @@ app.use(passport.session());
 
 app.use((req, res, next) => {
     res.locals.user = req.user;
-    next() 
+    next();
+})
+
+app.use(async (req, res, next) => {
+    if (req.user) {
+        res.locals.files = await getAllFiles({uploaderId: req.user.id})
+    }
+    next();
 })
 
 app.use('/', indexRouter);
 app.use('/login', loginRouter);
 app.use('/sign-up', signupRouter);
+app.use('/upload', uploadRouter);
 
 app.use('/logout', logoutRouter);
 

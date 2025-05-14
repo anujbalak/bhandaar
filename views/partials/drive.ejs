@@ -1,0 +1,41 @@
+<div class="drive">
+    <div class="drive-header">
+        <div class="path-container">
+            <a href="/"><%- include('../icons/home.svg') %> </a>
+        </div>
+        <div class="add-container">
+            <h2 class="create">+</h2>
+            <a href="/create/folder">
+                Folder
+            </a>
+            <a href="/upload">
+                File
+            </a>
+        </div>
+    </div>
+    <hr>
+    <div class="drive-content">
+        <div class="structure layout">
+            <div class="file-icon">
+                .
+            </div>
+            <div class="file-name">
+                Name
+            </div>
+            <div class="file-upload-time">
+                Uploaded Time
+            </div>
+            <div class="file-download-count">
+                Total downloads
+            </div>
+            <div class="file-download">
+                Download 
+            </div>
+        </div>
+        <% if (locals.files) { %>
+            <% files.forEach(file => { %>
+               <%- include('../partials/file.ejs', {file}) %>  
+            <% }); %>     
+        <% } %> 
+    </div>
+</div>

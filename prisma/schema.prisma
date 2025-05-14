@@ -26,4 +26,16 @@ model User {
   name     String @db.VarChar(255)
   email    String @unique
   password String
+  File     File[]
+}
+
+model File {
+  id            String   @id @default(uuid())
+  originalname  String   @db.Text
+  filename      String   @db.VarChar(255)
+  size          Int      @db.Integer
+  uploader      User     @relation(fields: [uploaderId], references: [id])
+  uploaderId    String
+  uploadtime    DateTime @default(now())
+  downloadCount Int      @default(0) @db.Integer
 }

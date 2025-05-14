@@ -36,3 +36,57 @@ export const getUser = async ({id, name, email}) => {
     });
     return user;
 }
+
+export const addFile = async (originalname, filename, size, user) => {
+    await prisma.file.create({
+        data: {
+            originalname,
+            filename,
+            size,
+            uploaderId: user.id,
+        },
+        include: {
+            uploader: true,
+        }
+    })
+}
+
+export const getFile = async ({id, originalname, filename, uploaderId}) => {
+    const file = await prisma.file.findFirst({
+        where: {
+            OR: [
+                {
+                    originalname: {
+                        contains: originalname,
+                    },
+                },
+                {
+                    filename: {
+                        contains: filename,
+                    },
+                },
+                {
+                    uploaderId
+                },
+                {
+                    id
+                },
+            ],
+        },
+    });
+    console.log(file)
+    return file
+};
+
+export const getAllFiles = async ({uploaderId}) => {
+    try {
+        const files = await prisma.file.findMany({
+            where: {
+                uploaderId,
+            },
+        });
+        return files
+    } catch (error) {
+        console.error(error);
+    }
+}

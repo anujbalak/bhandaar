@@ -1,0 +1,51 @@
+.drive-header {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 1em;
+    align-items: center;
+}
+
+.add-container {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    gap: 6px;
+    border-radius: 10px;
+    font-size: 1.6rem;
+    font-weight: 700;
+    font-family: monospace;
+}
+
+hr {
+    height: 2px;
+    opacity: 50%;
+}
+
+.add-container > * {
+    margin: 0 1em;
+
+}
+
+.add-container .create {
+    
+    color: snow;
+    text-align: center;
+    font-size: 2rem;
+    margin: 0;
+    border-radius: 8px 8px 0 0;
+    background-color: #0066da;
+}
+
+.file, .structure {
+    display: grid;
+    gap: 1em;
+    align-items: center;
+    justify-items: left;
+    grid-template-columns: 40px  3fr 2fr 1fr 1fr;
+}
+
+.structure.layout {
+    font-size: 1.2rem;
+    font-weight: 600;
+}

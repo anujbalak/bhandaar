@@ -134,6 +134,16 @@ exports.Prisma.UserScalarFieldEnum = {
   password: 'password'
 };
 
+exports.Prisma.FileScalarFieldEnum = {
+  id: 'id',
+  originalname: 'originalname',
+  filename: 'filename',
+  size: 'size',
+  uploaderId: 'uploaderId',
+  uploadtime: 'uploadtime',
+  downloadCount: 'downloadCount'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -147,7 +157,8 @@ exports.Prisma.QueryMode = {
 
 exports.Prisma.ModelName = {
   Session: 'Session',
-  User: 'User'
+  User: 'User',
+  File: 'File'
 };
 
 /**

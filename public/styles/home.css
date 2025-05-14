@@ -16,6 +16,14 @@ body {
     grid-template-rows: max-content;
 }
 
+.page {
+    display: grid;
+    background-color: rgb(230, 222, 214);
+    margin: calc(4vw - 1em);
+    border-radius: 1em 1em 0 0;
+    margin-bottom: 0;
+}
+
 .account-img, svg {
     cursor: pointer;
 }
@@ -32,7 +40,7 @@ a:hover, a:focus {
     text-decoration-thickness: 2px;
 }
 
-.login-page, .sign-up-page {
+.login-page, .sign-up-page, .upload-page {
     display: grid;
     place-self: center;
 }

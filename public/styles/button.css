@@ -18,3 +18,12 @@ button.normal {
 button:focus, button:hover {
     outline: 2px solid rgb(78, 78, 78);
 }
+
+.accent.plus {
+    font-weight: 800;
+    font-size: 2rem;
+    padding: 10px 20px;
+    text-align: center;
+    font-family: monospace;
+    border-radius: 10px;
+}
