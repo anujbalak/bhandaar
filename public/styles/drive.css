@@ -43,6 +43,7 @@ hr {
     align-items: center;
     justify-items: left;
     grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    margin: 5px 10px;
 }
 
 .structure.layout {

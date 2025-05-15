@@ -141,7 +141,16 @@ exports.Prisma.FileScalarFieldEnum = {
   size: 'size',
   uploaderId: 'uploaderId',
   uploadtime: 'uploadtime',
-  downloadCount: 'downloadCount'
+  downloadCount: 'downloadCount',
+  folderId: 'folderId'
+};
+
+exports.Prisma.FolderScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  parentFolderId: 'parentFolderId'
 };
 
 exports.Prisma.SortOrder = {
@@ -154,11 +163,17 @@ exports.Prisma.QueryMode = {
   insensitive: 'insensitive'
 };
 
+exports.Prisma.NullsOrder = {
+  first: 'first',
+  last: 'last'
+};
+
 
 exports.Prisma.ModelName = {
   Session: 'Session',
   User: 'User',
-  File: 'File'
+  File: 'File',
+  Folder: 'Folder'
 };
 
 /**
