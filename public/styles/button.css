@@ -27,3 +27,16 @@ button:focus, button:hover {
     font-family: monospace;
     border-radius: 10px;
 }
+
+.none {
+    all: none;
+    appearance: none;
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+}
+
+.none:hover, .none:focus {
+    outline: none;
+    transform: scale(1.03);
+}

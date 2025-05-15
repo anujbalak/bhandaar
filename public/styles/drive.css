@@ -42,10 +42,18 @@ hr {
     gap: 1em;
     align-items: center;
     justify-items: left;
-    grid-template-columns: 40px  3fr 2fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
 }
 
 .structure.layout {
     font-size: 1.2rem;
     font-weight: 600;
+}
+.file-name {
+    display: flex;
+    align-items: center; 
+}
+
+.file-download, .file-delete {
+    justify-self: center;
 }

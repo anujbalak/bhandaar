@@ -5,6 +5,11 @@
                 <input type="file" name="file" />
                 <button type="submit" class="accent">Upload</button>
             </form>    
+            <% if (locals.error) { %>
+                <div class="error-container">
+                    <p class="error"><%= error %> </p>
+                </div>    
+            <% } %> 
         </div>
     <% } %> 
 <%- include('../partials/footer') %>

@@ -1,17 +1,27 @@
 <div class="file structure">
-    <div class="file-icon">
-        <%- include('../icons/file.svg') %> 
-    </div>
     <div class="file-name">
+        <%- include('../icons/file.svg') %> 
         <span><%= file.originalname %> </span>
+        <form action="/edit/" method="get"></form>
     </div>
     <div class="file-upload-time">
-        <span><%= file.uploadtime %> </span>
+        <span><%= file.uploadtime.toLocaleDateString() %> </span>
     </div>
     <div class="file-download-count">
         <span><%= file.downloadCount %></span>
     </div>
     <div class="file-download">
-        <%- include('../icons/download.svg') %> 
+        <form action="/download/<%= file.id %>" method="get">
+            <button type="submit" class="none">
+                <%- include('../icons/download.svg') %> 
+            </button>
+        </form>
+    </div>
+    <div class="file-delete">
+        <form action="/delete/file/<%= file.id %>" method="post">
+            <button type="submit" class="none">
+                <%- include('../icons/bin.svg') %> 
+            </button>
+        </form>
     </div>
 </div>

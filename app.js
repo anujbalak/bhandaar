@@ -17,9 +17,11 @@ import local from './passport/strategy.js';
 import { getAllFiles, getUser } from './db/queries.js';
 import logoutRouter from './routes/logoutRouter.js';
 import uploadRouter from './routes/uploadRouter.js';
+import downloadRouter from './routes/downloadRouter.js';
+import deleteRouter from './routes/deleteRouter.js'
 
 const __filename = url.fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename);
+export const __dirname = path.dirname(__filename);
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'))
 app.use(express.urlencoded({extended: false}))
@@ -60,6 +62,8 @@ app.use('/', indexRouter);
 app.use('/login', loginRouter);
 app.use('/sign-up', signupRouter);
 app.use('/upload', uploadRouter);
+app.use('/download', downloadRouter);
+app.use('/delete', deleteRouter);
 
 app.use('/logout', logoutRouter);
 

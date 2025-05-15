@@ -74,7 +74,6 @@ export const getFile = async ({id, originalname, filename, uploaderId}) => {
             ],
         },
     });
-    console.log(file)
     return file
 };
 
@@ -89,4 +88,27 @@ export const getAllFiles = async ({uploaderId}) => {
     } catch (error) {
         console.error(error);
     }
+}
+
+export const updateDownloadCount = async (id) => {
+    const file = await prisma.file.update({
+        where: {
+            id
+        },
+        data: {
+            downloadCount: {
+                increment: 1
+            }
+        }
+    });
+    return file
+};
+
+export const deleteFile = async (id) => {
+    const file = await prisma.file.delete({
+        where: {
+            id
+        },
+    });
+    return file
 }
