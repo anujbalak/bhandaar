@@ -31,6 +31,28 @@ export const createFolderInFolder = async (id, name, uploaderId) => {
     });
 };
 
+export const uploadFileInFolder = async (id, originalname, filename, size, uploaderId) => {
+    await prisma.folder.update({
+        where: {
+            id,
+        },
+        data: {
+            files: {
+                create: {
+                    originalname,
+                    filename,
+                    size,
+                    uploaderId,
+                    home: false,
+                },
+            },
+        },
+        include: {
+            files: true,
+        },
+    });
+};
+
 export const getAllFolders = async (uploaderId) => {
     const folders = await prisma.folder.findMany({
         where: {
@@ -38,7 +60,6 @@ export const getAllFolders = async (uploaderId) => {
             parentFolderId: null,
         }
     })
-    console.log(folders)
     return folders
 }
 
@@ -53,6 +74,7 @@ export const getFolder = async (id) => {
                 folders: true,
             },
         });
+        console.log(folder);
         return folder;
     } catch (error) {
         console.error(error);

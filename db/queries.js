@@ -82,7 +82,12 @@ export const getAllFiles = async ({uploaderId}) => {
         const files = await prisma.file.findMany({
             where: {
                 uploaderId,
+                Folder: null,
+                home: true
             },
+            include: {
+                Folder: true
+            }
         });
         return files
     } catch (error) {

@@ -3319,6 +3319,7 @@ export namespace Prisma {
     uploadtime: Date | null
     downloadCount: number | null
     folderId: string | null
+    home: boolean | null
   }
 
   export type FileMaxAggregateOutputType = {
@@ -3330,6 +3331,7 @@ export namespace Prisma {
     uploadtime: Date | null
     downloadCount: number | null
     folderId: string | null
+    home: boolean | null
   }
 
   export type FileCountAggregateOutputType = {
@@ -3341,6 +3343,7 @@ export namespace Prisma {
     uploadtime: number
     downloadCount: number
     folderId: number
+    home: number
     _all: number
   }
 
@@ -3364,6 +3367,7 @@ export namespace Prisma {
     uploadtime?: true
     downloadCount?: true
     folderId?: true
+    home?: true
   }
 
   export type FileMaxAggregateInputType = {
@@ -3375,6 +3379,7 @@ export namespace Prisma {
     uploadtime?: true
     downloadCount?: true
     folderId?: true
+    home?: true
   }
 
   export type FileCountAggregateInputType = {
@@ -3386,6 +3391,7 @@ export namespace Prisma {
     uploadtime?: true
     downloadCount?: true
     folderId?: true
+    home?: true
     _all?: true
   }
 
@@ -3484,6 +3490,7 @@ export namespace Prisma {
     uploadtime: Date
     downloadCount: number
     folderId: string | null
+    home: boolean
     _count: FileCountAggregateOutputType | null
     _avg: FileAvgAggregateOutputType | null
     _sum: FileSumAggregateOutputType | null
@@ -3514,6 +3521,7 @@ export namespace Prisma {
     uploadtime?: boolean
     downloadCount?: boolean
     folderId?: boolean
+    home?: boolean
     uploader?: boolean | UserDefaultArgs<ExtArgs>
     Folder?: boolean | File$FolderArgs<ExtArgs>
   }, ExtArgs["result"]["file"]>
@@ -3527,6 +3535,7 @@ export namespace Prisma {
     uploadtime?: boolean
     downloadCount?: boolean
     folderId?: boolean
+    home?: boolean
     uploader?: boolean | UserDefaultArgs<ExtArgs>
     Folder?: boolean | File$FolderArgs<ExtArgs>
   }, ExtArgs["result"]["file"]>
@@ -3540,6 +3549,7 @@ export namespace Prisma {
     uploadtime?: boolean
     downloadCount?: boolean
     folderId?: boolean
+    home?: boolean
     uploader?: boolean | UserDefaultArgs<ExtArgs>
     Folder?: boolean | File$FolderArgs<ExtArgs>
   }, ExtArgs["result"]["file"]>
@@ -3553,9 +3563,10 @@ export namespace Prisma {
     uploadtime?: boolean
     downloadCount?: boolean
     folderId?: boolean
+    home?: boolean
   }
 
-  export type FileOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "originalname" | "filename" | "size" | "uploaderId" | "uploadtime" | "downloadCount" | "folderId", ExtArgs["result"]["file"]>
+  export type FileOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "originalname" | "filename" | "size" | "uploaderId" | "uploadtime" | "downloadCount" | "folderId" | "home", ExtArgs["result"]["file"]>
   export type FileInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     uploader?: boolean | UserDefaultArgs<ExtArgs>
     Folder?: boolean | File$FolderArgs<ExtArgs>
@@ -3584,6 +3595,7 @@ export namespace Prisma {
       uploadtime: Date
       downloadCount: number
       folderId: string | null
+      home: boolean
     }, ExtArgs["result"]["file"]>
     composites: {}
   }
@@ -4017,6 +4029,7 @@ export namespace Prisma {
     readonly uploadtime: FieldRef<"File", 'DateTime'>
     readonly downloadCount: FieldRef<"File", 'Int'>
     readonly folderId: FieldRef<"File", 'String'>
+    readonly home: FieldRef<"File", 'Boolean'>
   }
     
 
@@ -5648,7 +5661,8 @@ export namespace Prisma {
     uploaderId: 'uploaderId',
     uploadtime: 'uploadtime',
     downloadCount: 'downloadCount',
-    folderId: 'folderId'
+    folderId: 'folderId',
+    home: 'home'
   };
 
   export type FileScalarFieldEnum = (typeof FileScalarFieldEnum)[keyof typeof FileScalarFieldEnum]
@@ -5734,6 +5748,13 @@ export namespace Prisma {
    * Reference to a field of type 'Int[]'
    */
   export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
     
 
 
@@ -5866,6 +5887,7 @@ export namespace Prisma {
     uploadtime?: DateTimeFilter<"File"> | Date | string
     downloadCount?: IntFilter<"File"> | number
     folderId?: StringNullableFilter<"File"> | string | null
+    home?: BoolFilter<"File"> | boolean
     uploader?: XOR<UserScalarRelationFilter, UserWhereInput>
     Folder?: XOR<FolderNullableScalarRelationFilter, FolderWhereInput> | null
   }
@@ -5879,6 +5901,7 @@ export namespace Prisma {
     uploadtime?: SortOrder
     downloadCount?: SortOrder
     folderId?: SortOrderInput | SortOrder
+    home?: SortOrder
     uploader?: UserOrderByWithRelationInput
     Folder?: FolderOrderByWithRelationInput
   }
@@ -5895,6 +5918,7 @@ export namespace Prisma {
     uploadtime?: DateTimeFilter<"File"> | Date | string
     downloadCount?: IntFilter<"File"> | number
     folderId?: StringNullableFilter<"File"> | string | null
+    home?: BoolFilter<"File"> | boolean
     uploader?: XOR<UserScalarRelationFilter, UserWhereInput>
     Folder?: XOR<FolderNullableScalarRelationFilter, FolderWhereInput> | null
   }, "id">
@@ -5908,6 +5932,7 @@ export namespace Prisma {
     uploadtime?: SortOrder
     downloadCount?: SortOrder
     folderId?: SortOrderInput | SortOrder
+    home?: SortOrder
     _count?: FileCountOrderByAggregateInput
     _avg?: FileAvgOrderByAggregateInput
     _max?: FileMaxOrderByAggregateInput
@@ -5927,6 +5952,7 @@ export namespace Prisma {
     uploadtime?: DateTimeWithAggregatesFilter<"File"> | Date | string
     downloadCount?: IntWithAggregatesFilter<"File"> | number
     folderId?: StringNullableWithAggregatesFilter<"File"> | string | null
+    home?: BoolWithAggregatesFilter<"File"> | boolean
   }
 
   export type FolderWhereInput = {
@@ -5960,19 +5986,19 @@ export namespace Prisma {
 
   export type FolderWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    parentFolderId?: string
     AND?: FolderWhereInput | FolderWhereInput[]
     OR?: FolderWhereInput[]
     NOT?: FolderWhereInput | FolderWhereInput[]
     name?: StringFilter<"Folder"> | string
     createdAt?: DateTimeFilter<"Folder"> | Date | string
     updatedAt?: DateTimeFilter<"Folder"> | Date | string
+    parentFolderId?: StringNullableFilter<"Folder"> | string | null
     uploaderId?: StringFilter<"Folder"> | string
     files?: FileListRelationFilter
     parentFolder?: XOR<FolderNullableScalarRelationFilter, FolderWhereInput> | null
     folders?: FolderListRelationFilter
     uploader?: XOR<UserScalarRelationFilter, UserWhereInput>
-  }, "id" | "parentFolderId">
+  }, "id">
 
   export type FolderOrderByWithAggregationInput = {
     id?: SortOrder
@@ -6111,6 +6137,7 @@ export namespace Prisma {
     size: number
     uploadtime?: Date | string
     downloadCount?: number
+    home?: boolean
     uploader: UserCreateNestedOneWithoutFileInput
     Folder?: FolderCreateNestedOneWithoutFilesInput
   }
@@ -6124,6 +6151,7 @@ export namespace Prisma {
     uploadtime?: Date | string
     downloadCount?: number
     folderId?: string | null
+    home?: boolean
   }
 
   export type FileUpdateInput = {
@@ -6133,6 +6161,7 @@ export namespace Prisma {
     size?: IntFieldUpdateOperationsInput | number
     uploadtime?: DateTimeFieldUpdateOperationsInput | Date | string
     downloadCount?: IntFieldUpdateOperationsInput | number
+    home?: BoolFieldUpdateOperationsInput | boolean
     uploader?: UserUpdateOneRequiredWithoutFileNestedInput
     Folder?: FolderUpdateOneWithoutFilesNestedInput
   }
@@ -6146,6 +6175,7 @@ export namespace Prisma {
     uploadtime?: DateTimeFieldUpdateOperationsInput | Date | string
     downloadCount?: IntFieldUpdateOperationsInput | number
     folderId?: NullableStringFieldUpdateOperationsInput | string | null
+    home?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type FileCreateManyInput = {
@@ -6157,6 +6187,7 @@ export namespace Prisma {
     uploadtime?: Date | string
     downloadCount?: number
     folderId?: string | null
+    home?: boolean
   }
 
   export type FileUpdateManyMutationInput = {
@@ -6166,6 +6197,7 @@ export namespace Prisma {
     size?: IntFieldUpdateOperationsInput | number
     uploadtime?: DateTimeFieldUpdateOperationsInput | Date | string
     downloadCount?: IntFieldUpdateOperationsInput | number
+    home?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type FileUncheckedUpdateManyInput = {
@@ -6177,6 +6209,7 @@ export namespace Prisma {
     uploadtime?: DateTimeFieldUpdateOperationsInput | Date | string
     downloadCount?: IntFieldUpdateOperationsInput | number
     folderId?: NullableStringFieldUpdateOperationsInput | string | null
+    home?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type FolderCreateInput = {
@@ -6394,6 +6427,11 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
   export type UserScalarRelationFilter = {
     is?: UserWhereInput
     isNot?: UserWhereInput
@@ -6418,6 +6456,7 @@ export namespace Prisma {
     uploadtime?: SortOrder
     downloadCount?: SortOrder
     folderId?: SortOrder
+    home?: SortOrder
   }
 
   export type FileAvgOrderByAggregateInput = {
@@ -6434,6 +6473,7 @@ export namespace Prisma {
     uploadtime?: SortOrder
     downloadCount?: SortOrder
     folderId?: SortOrder
+    home?: SortOrder
   }
 
   export type FileMinOrderByAggregateInput = {
@@ -6445,6 +6485,7 @@ export namespace Prisma {
     uploadtime?: SortOrder
     downloadCount?: SortOrder
     folderId?: SortOrder
+    home?: SortOrder
   }
 
   export type FileSumOrderByAggregateInput = {
@@ -6484,6 +6525,14 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedStringNullableFilter<$PrismaModel>
     _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type FolderCountOrderByAggregateInput = {
@@ -6623,6 +6672,10 @@ export namespace Prisma {
     decrement?: number
     multiply?: number
     divide?: number
+  }
+
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
   }
 
   export type UserUpdateOneRequiredWithoutFileNestedInput = {
@@ -6842,6 +6895,11 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -6897,6 +6955,14 @@ export namespace Prisma {
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
   export type FileCreateWithoutUploaderInput = {
     id?: string
     originalname: string
@@ -6904,6 +6970,7 @@ export namespace Prisma {
     size: number
     uploadtime?: Date | string
     downloadCount?: number
+    home?: boolean
     Folder?: FolderCreateNestedOneWithoutFilesInput
   }
 
@@ -6915,6 +6982,7 @@ export namespace Prisma {
     uploadtime?: Date | string
     downloadCount?: number
     folderId?: string | null
+    home?: boolean
   }
 
   export type FileCreateOrConnectWithoutUploaderInput = {
@@ -6985,6 +7053,7 @@ export namespace Prisma {
     uploadtime?: DateTimeFilter<"File"> | Date | string
     downloadCount?: IntFilter<"File"> | number
     folderId?: StringNullableFilter<"File"> | string | null
+    home?: BoolFilter<"File"> | boolean
   }
 
   export type FolderUpsertWithWhereUniqueWithoutUploaderInput = {
@@ -7126,6 +7195,7 @@ export namespace Prisma {
     size: number
     uploadtime?: Date | string
     downloadCount?: number
+    home?: boolean
     uploader: UserCreateNestedOneWithoutFileInput
   }
 
@@ -7137,6 +7207,7 @@ export namespace Prisma {
     uploaderId: string
     uploadtime?: Date | string
     downloadCount?: number
+    home?: boolean
   }
 
   export type FileCreateOrConnectWithoutFolderInput = {
@@ -7323,6 +7394,7 @@ export namespace Prisma {
     uploadtime?: Date | string
     downloadCount?: number
     folderId?: string | null
+    home?: boolean
   }
 
   export type FolderCreateManyUploaderInput = {
@@ -7340,6 +7412,7 @@ export namespace Prisma {
     size?: IntFieldUpdateOperationsInput | number
     uploadtime?: DateTimeFieldUpdateOperationsInput | Date | string
     downloadCount?: IntFieldUpdateOperationsInput | number
+    home?: BoolFieldUpdateOperationsInput | boolean
     Folder?: FolderUpdateOneWithoutFilesNestedInput
   }
 
@@ -7351,6 +7424,7 @@ export namespace Prisma {
     uploadtime?: DateTimeFieldUpdateOperationsInput | Date | string
     downloadCount?: IntFieldUpdateOperationsInput | number
     folderId?: NullableStringFieldUpdateOperationsInput | string | null
+    home?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type FileUncheckedUpdateManyWithoutUploaderInput = {
@@ -7361,6 +7435,7 @@ export namespace Prisma {
     uploadtime?: DateTimeFieldUpdateOperationsInput | Date | string
     downloadCount?: IntFieldUpdateOperationsInput | number
     folderId?: NullableStringFieldUpdateOperationsInput | string | null
+    home?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type FolderUpdateWithoutUploaderInput = {
@@ -7399,6 +7474,7 @@ export namespace Prisma {
     uploaderId: string
     uploadtime?: Date | string
     downloadCount?: number
+    home?: boolean
   }
 
   export type FolderCreateManyParentFolderInput = {
@@ -7416,6 +7492,7 @@ export namespace Prisma {
     size?: IntFieldUpdateOperationsInput | number
     uploadtime?: DateTimeFieldUpdateOperationsInput | Date | string
     downloadCount?: IntFieldUpdateOperationsInput | number
+    home?: BoolFieldUpdateOperationsInput | boolean
     uploader?: UserUpdateOneRequiredWithoutFileNestedInput
   }
 
@@ -7427,6 +7504,7 @@ export namespace Prisma {
     uploaderId?: StringFieldUpdateOperationsInput | string
     uploadtime?: DateTimeFieldUpdateOperationsInput | Date | string
     downloadCount?: IntFieldUpdateOperationsInput | number
+    home?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type FileUncheckedUpdateManyWithoutFolderInput = {
@@ -7437,6 +7515,7 @@ export namespace Prisma {
     uploaderId?: StringFieldUpdateOperationsInput | string
     uploadtime?: DateTimeFieldUpdateOperationsInput | Date | string
     downloadCount?: IntFieldUpdateOperationsInput | number
+    home?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type FolderUpdateWithoutParentFolderInput = {
