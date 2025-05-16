@@ -27,6 +27,10 @@ hr {
 
 }
 
+.drive-content {
+    display: grid;
+    gap: 10px;
+}
 .add-container .create {
     
     color: snow;
@@ -43,6 +47,9 @@ hr {
     align-items: center;
     justify-items: left;
     grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+}
+
+.structure > * {
     margin: 5px 10px;
 }
 
@@ -50,11 +57,21 @@ hr {
     font-size: 1.2rem;
     font-weight: 600;
 }
-.file-name {
+.file-name, .folder-name {
     display: flex;
-    align-items: center; 
+    align-items: center;
+    gap: 5px; 
 }
 
-.file-download, .file-delete {
+.file-download, .file-delete, .folder-delete {
     justify-self: center;
+}
+
+.folder.structure {
+    background-color: rgb(219, 194, 165);
+    border-radius: 10px;
+}
+
+.folder-delete {
+    grid-column: 5 / 6;
 }

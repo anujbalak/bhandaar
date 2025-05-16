@@ -1,0 +1,14 @@
+<div class="new-folder">
+    <form action="/create/folder" method="post">
+        <section class="input-section folder">
+            <label for="folder">Name</label>
+            <input 
+                type="text" 
+                name="folder" 
+                id="folder"
+            >
+            <%- include('../partials/error', {error_path: 'folder'}) %> 
+        </section>
+        <button type="submit" class="accent">Create</button>
+    </form>
+</div>

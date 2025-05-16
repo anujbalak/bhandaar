@@ -150,7 +150,8 @@ exports.Prisma.FolderScalarFieldEnum = {
   name: 'name',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
-  parentFolderId: 'parentFolderId'
+  parentFolderId: 'parentFolderId',
+  uploaderId: 'uploaderId'
 };
 
 exports.Prisma.SortOrder = {

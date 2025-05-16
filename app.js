@@ -19,6 +19,9 @@ import logoutRouter from './routes/logoutRouter.js';
 import uploadRouter from './routes/uploadRouter.js';
 import downloadRouter from './routes/downloadRouter.js';
 import deleteRouter from './routes/deleteRouter.js'
+import folderRouter from './routes/folderRouter.js';
+import { getAllFolders } from './db/folderQueries.js';
+import createRouter from './routes/createRouter.js';
 
 const __filename = url.fileURLToPath(import.meta.url)
 export const __dirname = path.dirname(__filename);
@@ -51,12 +54,14 @@ app.use((req, res, next) => {
     next();
 })
 
-app.use(async (req, res, next) => {
-    if (req.user) {
-        res.locals.files = await getAllFiles({uploaderId: req.user.id})
-    }
-    next();
-})
+// app.use(async (req, res, next) => {
+//     if (req.user) {
+//         const folders = await getAllFolders(req.user.id);
+//         res.locals.folders = folders;
+//         console.log(folders)
+//     }
+//     next();
+// })
 
 app.use('/', indexRouter);
 app.use('/login', loginRouter);
@@ -64,6 +69,8 @@ app.use('/sign-up', signupRouter);
 app.use('/upload', uploadRouter);
 app.use('/download', downloadRouter);
 app.use('/delete', deleteRouter);
+app.use('/create', createRouter);
+app.use('/folder', folderRouter);
 
 app.use('/logout', logoutRouter);
 

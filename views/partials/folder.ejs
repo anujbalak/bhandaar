@@ -1,0 +1,19 @@
+<div class="folder structure">
+    <a href="/folder/<%= folder.id %>">
+        <div class="folder-name">
+            <%- include('../icons/folder.svg') %> 
+            <span><%= folder.name %></span>
+            <form action="/edit/" method="get"></form>
+        </div>
+    </a>
+    <div class="folder-create-time">
+        <span><%= folder.createdAt.toLocaleDateString() %> </span>
+    </div>
+    <div class="folder-delete">
+        <form action="/delete/folder/<%= folder.id %>" method="post">
+            <button type="submit" class="none">
+                <%- include('../icons/bin.svg') %> 
+            </button>
+        </form>
+    </div>
+</div>

@@ -22,11 +22,12 @@ model Session {
 }
 
 model User {
-  id       String @id @default(uuid())
-  name     String @db.VarChar(255)
-  email    String @unique
+  id       String   @id @default(uuid())
+  name     String   @db.VarChar(255)
+  email    String   @unique
   password String
   File     File[]
+  Folder   Folder[]
 }
 
 model File {
@@ -51,4 +52,6 @@ model Folder {
   parentFolderId String?  @unique
   parentFolder   Folder?  @relation("FolderDetails", fields: [parentFolderId], references: [id])
   folders        Folder[] @relation("FolderDetails")
+  uploader       User     @relation(fields: [uploaderId], references: [id])
+  uploaderId     String
 }

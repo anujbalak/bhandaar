@@ -5,10 +5,10 @@
         </div>
         <div class="add-container">
             <h2 class="create">+</h2>
-            <a href="/create/folder">
+            <a href="/create/folder/<% if (locals.folder) {%><%= folder.id %><% }%>">
                 Folder
             </a>
-            <a href="/upload">
+            <a href="/upload/<% if (locals.folder) {%><%= folder.id %><% }%>">
                 File
             </a>
         </div>
@@ -32,6 +32,14 @@
                 Delete
             </div>
         </div>
+        <% if (locals.createFolder) { %>
+            <%- include('../partials/new-folder-input.ejs') %> 
+        <% } %> 
+        <% if (locals.folders) { %>
+            <% folders.forEach(folder => { %>
+               <%- include('./folder.ejs', {folder}) %>  
+            <% }); %>     
+        <% } %> 
         <% if (locals.files) { %>
             <% files.forEach(file => { %>
                <%- include('../partials/file.ejs', {file}) %>  

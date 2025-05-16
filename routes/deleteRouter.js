@@ -1,8 +1,9 @@
 import { Router } from "express";
-import { postDeleteFile } from "../controllers/deleteController.js";
+import { postDeleteFile, postDeleteFolder } from "../controllers/deleteController.js";
 
 const deleteRouter = Router();
 
 deleteRouter.post('/file/:fileId', postDeleteFile)
+deleteRouter.post('/folder/:folderId', postDeleteFolder)
 
 export default deleteRouter;
