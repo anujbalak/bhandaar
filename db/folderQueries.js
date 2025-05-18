@@ -1,5 +1,4 @@
 import { PrismaClient } from '../generated/prisma/client.js'
-import bcrypt from 'bcryptjs'
 
 const prisma = new PrismaClient();
 
@@ -58,6 +57,9 @@ export const getAllFolders = async (uploaderId) => {
         where: {
             uploaderId,
             parentFolderId: null,
+        },
+        orderBy: {
+            name: 'asc'
         }
     })
     return folders
@@ -71,10 +73,14 @@ export const getFolder = async (id) => {
             },
             include: {
                 files: true,
-                folders: true,
+                folders: {
+                    orderBy: {
+                        name: 'asc'
+                    },
+                },
+                parentFolder: true,
             },
         });
-        console.log(folder);
         return folder;
     } catch (error) {
         console.error(error);

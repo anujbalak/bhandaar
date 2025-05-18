@@ -1,8 +1,6 @@
 <div class="drive">
     <div class="drive-header">
-        <div class="path-container">
-            <a href="/"><%- include('../icons/home.svg') %> </a>
-        </div>
+        <%- include('./drive-nav.ejs') %> 
         <div class="add-container">
             <h2 class="create">+</h2>
             <a href="/create/folder/<% if (locals.folder) {%><%= folder.id %><% }%>">

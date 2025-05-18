@@ -20,3 +20,15 @@ input {
 .redirect a {
     color: #0066da;
 }
+
+.new-folder form {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.input-section.folder {
+    display: flex;
+    align-items: center;
+}

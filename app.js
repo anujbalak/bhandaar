@@ -22,6 +22,7 @@ import deleteRouter from './routes/deleteRouter.js'
 import folderRouter from './routes/folderRouter.js';
 import { getAllFolders } from './db/folderQueries.js';
 import createRouter from './routes/createRouter.js';
+import { makeNav } from './controllers/folderController.js';
 
 const __filename = url.fileURLToPath(import.meta.url)
 export const __dirname = path.dirname(__filename);
@@ -54,16 +55,14 @@ app.use((req, res, next) => {
     next();
 })
 
-// app.use(async (req, res, next) => {
-//     if (req.user) {
-//         const folders = await getAllFolders(req.user.id);
-//         res.locals.folders = folders;
-//         console.log(folders)
-//     }
-//     next();
-// })
+
 
 app.use('/', indexRouter);
+app.use((req, res, next) => {
+    makeNav(res);
+    next()
+})
+
 app.use('/login', loginRouter);
 app.use('/sign-up', signupRouter);
 app.use('/upload', uploadRouter);
@@ -73,6 +72,7 @@ app.use('/create', createRouter);
 app.use('/folder', folderRouter);
 
 app.use('/logout', logoutRouter);
+
 
 passport.use(local)
 passport.serializeUser((user, done) => {

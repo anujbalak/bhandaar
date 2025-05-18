@@ -136,5 +136,5 @@ dist
 .pnp.*
 
 # prisma
-
+uploads/
 generated/prisma

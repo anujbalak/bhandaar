@@ -1,0 +1,9 @@
+<div class="path-container">
+    <a href="/"><%- include('../icons/home.svg') %></a>
+    <% if (locals.nav) {%>
+        <% nav.forEach(n => { %>
+            <span>></span>
+            <a href="/folder/<%= n.id %>"><%= n.name %></a>
+        <% }) %> 
+    <% } %>  
+</div>

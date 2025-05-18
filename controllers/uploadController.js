@@ -27,7 +27,7 @@ export const postUpload = [
             const user = req.user
             if (currentFolder) {
                 await uploadFileInFolder(currentFolder.id, file.originalname, file.filename, file.size, user.id);
-                res.redirect('/');
+                res.redirect(`/folder/${currentFolder.id}`);
                 return;
             }
             await addFile(file.originalname, file.filename, file.size, user)

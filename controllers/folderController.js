@@ -1,10 +1,24 @@
 import { body, validationResult } from "express-validator";
-import { createFolder, createFolderInFolder, getFolder } from "../db/folderQueries.js";
+import { createFolder, createFolderInFolder, getFolder, getAllFolders } from "../db/folderQueries.js";
+import { getAllFiles } from "../db/queries.js";
 
-export const getCreateFolder = (req, res) => {
+
+export const getCreateFolder = async (req, res) => {
     try {
+        if (!req.user) {
+            return res.redirect('/')
+        }
+        const folder = res.app.get('folder')
+        let folders = await getAllFolders(req.user.id);
+        let files = await getAllFiles({uploaderId: req.user.id})
+        if (folder) {
+            folders = folder.folders;
+            files = folder.files;
+        }
         res.render('pages/index', {
-            createFolder: true
+            createFolder: true,
+            folders,
+            files
         });
     } catch (error) {
         throw new Error(error);
@@ -31,7 +45,7 @@ export const postCreateFolder = [
             const user = req.user
             if (currentFolder) {
                 await createFolderInFolder(currentFolder.id, folder, user.id);
-                res.redirect('/');
+                res.redirect(`/folder/${currentFolder.id}`);
                 return;
             }
             await createFolder(folder, user.id);
@@ -48,6 +62,9 @@ export const getFolderPage = async (req, res) => {
         const folder = await getFolder(folderId)
         res.locals.folder = folder;
         res.app.set('folder', folder);
+
+        
+        makeNav(res)
         res.render('pages/index', {
             folders: folder.folders,
             files: folder.files,
@@ -56,3 +73,27 @@ export const getFolderPage = async (req, res) => {
         throw new Error(error);
     }
 }
+
+export const makeNav = (res) => {
+    let folder = res.app.get('folder') 
+    
+    let nav = [
+    
+    ]
+
+    if (folder) {
+       nav.push({
+        name: folder.name,
+        id: folder.id,
+       })
+        while (folder.parentFolder) {
+            nav.unshift({
+                name: folder.parentFolder.name,
+                id: folder.parentFolder.id,
+               })
+            folder = folder.parentFolder;
+        }
+
+    }
+    res.locals.nav = nav;
+};
