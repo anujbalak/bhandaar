@@ -8,17 +8,8 @@ export const getCreateFolder = async (req, res) => {
         if (!req.user) {
             return res.redirect('/')
         }
-        const folder = res.app.get('folder')
-        let folders = await getAllFolders(req.user.id);
-        let files = await getAllFiles({uploaderId: req.user.id})
-        if (folder) {
-            folders = folder.folders;
-            files = folder.files;
-        }
         res.render('pages/index', {
             createFolder: true,
-            folders,
-            files
         });
     } catch (error) {
         throw new Error(error);

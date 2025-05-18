@@ -55,7 +55,20 @@ app.use((req, res, next) => {
     next();
 })
 
-
+app.use(async (req, res, next) => {
+    if (req.user) {
+        const folder = res.app.get('folder')
+        let folders = await getAllFolders(req.user.id);
+        let files = await getAllFiles({uploaderId: req.user.id})
+        if (folder) {
+            folders = folder.folders;
+            files = folder.files;
+        }
+        res.locals.folders = folders;
+        res.locals.files = files;
+    }
+    next()
+})
 
 app.use('/', indexRouter);
 app.use((req, res, next) => {
