@@ -88,6 +88,9 @@ export const postUpload = [
             res.redirect('/')   
         } catch (error) {
             console.error(error);
+            res.render('pages/errors', {
+                error: error.error
+            })
         }
     }
 ]

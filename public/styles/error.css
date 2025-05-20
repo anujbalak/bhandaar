@@ -8,3 +8,10 @@
     font-size: 1.2rem;
     color: rgb(46, 27, 27);
 }
+
+.error-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    place-self: center;
+}

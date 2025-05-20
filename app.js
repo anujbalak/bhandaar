@@ -84,6 +84,7 @@ app.use('/delete', deleteRouter);
 app.use('/create', createRouter);
 app.use('/folder', folderRouter);
 
+
 app.use('/logout', logoutRouter);
 
 
@@ -99,6 +100,10 @@ passport.deserializeUser(async (id, done) => {
     } catch (err) {
         done(err);
     }
+})
+
+app.use((err, req, res, next) => {
+    res.render('pages/errors', {error: err});
 })
 
 const port = process.env.PORT

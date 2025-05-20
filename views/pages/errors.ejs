@@ -1,0 +1,12 @@
+<%- include('../partials/header', {title: 'Home'}) %>
+    <div class="error-container">
+        <h2>Looks like you got an error</h2>
+        <% if (locals.error) { %>
+            <p class="error">Message: <%= error.message %></p>
+            <p class="error">code: <%= error.http_code %></p>    
+        <% } %>
+        <h2 class="refresh">
+            <a href="/">Refresh</a>
+        </h2> 
+    </div>
+<%- include('../partials/footer') %>

@@ -23,8 +23,12 @@ export const postDeleteFile = async (req, res) => {
 export const postDeleteFolder = async (req, res) => {
     try {
         const { folderId } = req.params;
-        console.log(folderId)
-        await deleteFromCloudFolder(folderId);
+        try {
+            await deleteFromCloudFolder(folderId);
+        } catch (error) {
+            res.render('pages/errors')
+            return console.error(error)
+        }
         await removeFolder(folderId);
         res.redirect('/');
     } catch (error) {

@@ -54,7 +54,7 @@ hr {
     gap: 1em;
     align-items: center;
     justify-items: left;
-    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;
 }
 
 .structure > * {
@@ -69,6 +69,11 @@ hr {
     display: flex;
     align-items: center;
     gap: 5px; 
+}
+
+.file-name, .folder-name, .file-size, .file-upload-time, .file-download-count, .file-download, .file-delete {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .file-download, .file-delete, .folder-delete {
