@@ -6,9 +6,10 @@ import { getAllFiles, getFile, updateDownloadCount } from '../db/queries.js';
 export const getDownload = async (req, res, next) => {
    const { fileId } = req.params;
    const file = await getFile({id: fileId})
-   const filePath = path.join(__dirname, 'uploads', file.filename)
+//    const filePath = path.join(__dirname, 'uploads', file.filename)
    await updateDownloadCount(fileId)
-   await res.download(filePath, file.originalname,  (err) => {
+   console.log(file);
+   await res.download(file.url, file.originalname,  (err) => {
     if (err) {
         console.error(err);
     }

@@ -20,11 +20,12 @@
         <span><%= file.downloadCount %></span>
     </div>
     <div class="file-download">
-        <form action="/download/<%= file.id %>" method="get">
+        <!-- <form action="/download/<%= file.id %>" method="get">
             <button type="submit" class="none">
-                <%- include('../icons/download.svg') %> 
+                <%## include('../icons/download.svg') %> 
             </button>
-        </form>
+        </form> -->
+        <a href="<%= file.url %> "><%- include('../icons/download.svg') %> </a>
     </div>
     <div class="file-delete">
         <form action="/delete/file/<%= file.id %>" method="post">

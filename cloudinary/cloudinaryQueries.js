@@ -21,6 +21,7 @@ export const buildDataURL = (file) => {
 
 export const handleHomeUpload = async (file) => {
     const res = await cloudinary.uploader.upload(file, {resource_type: 'auto'});
+    console.log(res);
     return res;
 }
 
@@ -36,4 +37,8 @@ export const handleFolderUpload = async (file, folder) => {
 export const deleteFromCloudFolder = async (folderId) => {
     await cloudinary.api.delete_resources_by_prefix(folderId).then((result) => console.log(result))
     .catch((err) => console.log(err));
+}
+
+export const downloadFromCloud = async () => {
+    
 }

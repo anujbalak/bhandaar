@@ -45,6 +45,7 @@ model File {
   home          Boolean  @default(true)
   url           String
   resource_type String
+  
 }
 
 model Folder {
