@@ -3313,37 +3313,46 @@ export namespace Prisma {
   export type FileMinAggregateOutputType = {
     id: string | null
     originalname: string | null
-    filename: string | null
     size: number | null
+    asset_id: string | null
+    public_id: string | null
     uploaderId: string | null
     uploadtime: Date | null
     downloadCount: number | null
     folderId: string | null
     home: boolean | null
+    url: string | null
+    resource_type: string | null
   }
 
   export type FileMaxAggregateOutputType = {
     id: string | null
     originalname: string | null
-    filename: string | null
     size: number | null
+    asset_id: string | null
+    public_id: string | null
     uploaderId: string | null
     uploadtime: Date | null
     downloadCount: number | null
     folderId: string | null
     home: boolean | null
+    url: string | null
+    resource_type: string | null
   }
 
   export type FileCountAggregateOutputType = {
     id: number
     originalname: number
-    filename: number
     size: number
+    asset_id: number
+    public_id: number
     uploaderId: number
     uploadtime: number
     downloadCount: number
     folderId: number
     home: number
+    url: number
+    resource_type: number
     _all: number
   }
 
@@ -3361,37 +3370,46 @@ export namespace Prisma {
   export type FileMinAggregateInputType = {
     id?: true
     originalname?: true
-    filename?: true
     size?: true
+    asset_id?: true
+    public_id?: true
     uploaderId?: true
     uploadtime?: true
     downloadCount?: true
     folderId?: true
     home?: true
+    url?: true
+    resource_type?: true
   }
 
   export type FileMaxAggregateInputType = {
     id?: true
     originalname?: true
-    filename?: true
     size?: true
+    asset_id?: true
+    public_id?: true
     uploaderId?: true
     uploadtime?: true
     downloadCount?: true
     folderId?: true
     home?: true
+    url?: true
+    resource_type?: true
   }
 
   export type FileCountAggregateInputType = {
     id?: true
     originalname?: true
-    filename?: true
     size?: true
+    asset_id?: true
+    public_id?: true
     uploaderId?: true
     uploadtime?: true
     downloadCount?: true
     folderId?: true
     home?: true
+    url?: true
+    resource_type?: true
     _all?: true
   }
 
@@ -3484,13 +3502,16 @@ export namespace Prisma {
   export type FileGroupByOutputType = {
     id: string
     originalname: string
-    filename: string
     size: number
+    asset_id: string
+    public_id: string
     uploaderId: string
     uploadtime: Date
     downloadCount: number
     folderId: string | null
     home: boolean
+    url: string
+    resource_type: string
     _count: FileCountAggregateOutputType | null
     _avg: FileAvgAggregateOutputType | null
     _sum: FileSumAggregateOutputType | null
@@ -3515,13 +3536,16 @@ export namespace Prisma {
   export type FileSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     originalname?: boolean
-    filename?: boolean
     size?: boolean
+    asset_id?: boolean
+    public_id?: boolean
     uploaderId?: boolean
     uploadtime?: boolean
     downloadCount?: boolean
     folderId?: boolean
     home?: boolean
+    url?: boolean
+    resource_type?: boolean
     uploader?: boolean | UserDefaultArgs<ExtArgs>
     Folder?: boolean | File$FolderArgs<ExtArgs>
   }, ExtArgs["result"]["file"]>
@@ -3529,13 +3553,16 @@ export namespace Prisma {
   export type FileSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     originalname?: boolean
-    filename?: boolean
     size?: boolean
+    asset_id?: boolean
+    public_id?: boolean
     uploaderId?: boolean
     uploadtime?: boolean
     downloadCount?: boolean
     folderId?: boolean
     home?: boolean
+    url?: boolean
+    resource_type?: boolean
     uploader?: boolean | UserDefaultArgs<ExtArgs>
     Folder?: boolean | File$FolderArgs<ExtArgs>
   }, ExtArgs["result"]["file"]>
@@ -3543,13 +3570,16 @@ export namespace Prisma {
   export type FileSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     originalname?: boolean
-    filename?: boolean
     size?: boolean
+    asset_id?: boolean
+    public_id?: boolean
     uploaderId?: boolean
     uploadtime?: boolean
     downloadCount?: boolean
     folderId?: boolean
     home?: boolean
+    url?: boolean
+    resource_type?: boolean
     uploader?: boolean | UserDefaultArgs<ExtArgs>
     Folder?: boolean | File$FolderArgs<ExtArgs>
   }, ExtArgs["result"]["file"]>
@@ -3557,16 +3587,19 @@ export namespace Prisma {
   export type FileSelectScalar = {
     id?: boolean
     originalname?: boolean
-    filename?: boolean
     size?: boolean
+    asset_id?: boolean
+    public_id?: boolean
     uploaderId?: boolean
     uploadtime?: boolean
     downloadCount?: boolean
     folderId?: boolean
     home?: boolean
+    url?: boolean
+    resource_type?: boolean
   }
 
-  export type FileOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "originalname" | "filename" | "size" | "uploaderId" | "uploadtime" | "downloadCount" | "folderId" | "home", ExtArgs["result"]["file"]>
+  export type FileOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "originalname" | "size" | "asset_id" | "public_id" | "uploaderId" | "uploadtime" | "downloadCount" | "folderId" | "home" | "url" | "resource_type", ExtArgs["result"]["file"]>
   export type FileInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     uploader?: boolean | UserDefaultArgs<ExtArgs>
     Folder?: boolean | File$FolderArgs<ExtArgs>
@@ -3589,13 +3622,16 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       originalname: string
-      filename: string
       size: number
+      asset_id: string
+      public_id: string
       uploaderId: string
       uploadtime: Date
       downloadCount: number
       folderId: string | null
       home: boolean
+      url: string
+      resource_type: string
     }, ExtArgs["result"]["file"]>
     composites: {}
   }
@@ -4023,13 +4059,16 @@ export namespace Prisma {
   interface FileFieldRefs {
     readonly id: FieldRef<"File", 'String'>
     readonly originalname: FieldRef<"File", 'String'>
-    readonly filename: FieldRef<"File", 'String'>
     readonly size: FieldRef<"File", 'Int'>
+    readonly asset_id: FieldRef<"File", 'String'>
+    readonly public_id: FieldRef<"File", 'String'>
     readonly uploaderId: FieldRef<"File", 'String'>
     readonly uploadtime: FieldRef<"File", 'DateTime'>
     readonly downloadCount: FieldRef<"File", 'Int'>
     readonly folderId: FieldRef<"File", 'String'>
     readonly home: FieldRef<"File", 'Boolean'>
+    readonly url: FieldRef<"File", 'String'>
+    readonly resource_type: FieldRef<"File", 'String'>
   }
     
 
@@ -5656,13 +5695,16 @@ export namespace Prisma {
   export const FileScalarFieldEnum: {
     id: 'id',
     originalname: 'originalname',
-    filename: 'filename',
     size: 'size',
+    asset_id: 'asset_id',
+    public_id: 'public_id',
     uploaderId: 'uploaderId',
     uploadtime: 'uploadtime',
     downloadCount: 'downloadCount',
     folderId: 'folderId',
-    home: 'home'
+    home: 'home',
+    url: 'url',
+    resource_type: 'resource_type'
   };
 
   export type FileScalarFieldEnum = (typeof FileScalarFieldEnum)[keyof typeof FileScalarFieldEnum]
@@ -5881,13 +5923,16 @@ export namespace Prisma {
     NOT?: FileWhereInput | FileWhereInput[]
     id?: StringFilter<"File"> | string
     originalname?: StringFilter<"File"> | string
-    filename?: StringFilter<"File"> | string
     size?: IntFilter<"File"> | number
+    asset_id?: StringFilter<"File"> | string
+    public_id?: StringFilter<"File"> | string
     uploaderId?: StringFilter<"File"> | string
     uploadtime?: DateTimeFilter<"File"> | Date | string
     downloadCount?: IntFilter<"File"> | number
     folderId?: StringNullableFilter<"File"> | string | null
     home?: BoolFilter<"File"> | boolean
+    url?: StringFilter<"File"> | string
+    resource_type?: StringFilter<"File"> | string
     uploader?: XOR<UserScalarRelationFilter, UserWhereInput>
     Folder?: XOR<FolderNullableScalarRelationFilter, FolderWhereInput> | null
   }
@@ -5895,44 +5940,53 @@ export namespace Prisma {
   export type FileOrderByWithRelationInput = {
     id?: SortOrder
     originalname?: SortOrder
-    filename?: SortOrder
     size?: SortOrder
+    asset_id?: SortOrder
+    public_id?: SortOrder
     uploaderId?: SortOrder
     uploadtime?: SortOrder
     downloadCount?: SortOrder
     folderId?: SortOrderInput | SortOrder
     home?: SortOrder
+    url?: SortOrder
+    resource_type?: SortOrder
     uploader?: UserOrderByWithRelationInput
     Folder?: FolderOrderByWithRelationInput
   }
 
   export type FileWhereUniqueInput = Prisma.AtLeast<{
     id?: string
+    asset_id?: string
+    public_id?: string
     AND?: FileWhereInput | FileWhereInput[]
     OR?: FileWhereInput[]
     NOT?: FileWhereInput | FileWhereInput[]
     originalname?: StringFilter<"File"> | string
-    filename?: StringFilter<"File"> | string
     size?: IntFilter<"File"> | number
     uploaderId?: StringFilter<"File"> | string
     uploadtime?: DateTimeFilter<"File"> | Date | string
     downloadCount?: IntFilter<"File"> | number
     folderId?: StringNullableFilter<"File"> | string | null
     home?: BoolFilter<"File"> | boolean
+    url?: StringFilter<"File"> | string
+    resource_type?: StringFilter<"File"> | string
     uploader?: XOR<UserScalarRelationFilter, UserWhereInput>
     Folder?: XOR<FolderNullableScalarRelationFilter, FolderWhereInput> | null
-  }, "id">
+  }, "id" | "asset_id" | "public_id">
 
   export type FileOrderByWithAggregationInput = {
     id?: SortOrder
     originalname?: SortOrder
-    filename?: SortOrder
     size?: SortOrder
+    asset_id?: SortOrder
+    public_id?: SortOrder
     uploaderId?: SortOrder
     uploadtime?: SortOrder
     downloadCount?: SortOrder
     folderId?: SortOrderInput | SortOrder
     home?: SortOrder
+    url?: SortOrder
+    resource_type?: SortOrder
     _count?: FileCountOrderByAggregateInput
     _avg?: FileAvgOrderByAggregateInput
     _max?: FileMaxOrderByAggregateInput
@@ -5946,13 +6000,16 @@ export namespace Prisma {
     NOT?: FileScalarWhereWithAggregatesInput | FileScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"File"> | string
     originalname?: StringWithAggregatesFilter<"File"> | string
-    filename?: StringWithAggregatesFilter<"File"> | string
     size?: IntWithAggregatesFilter<"File"> | number
+    asset_id?: StringWithAggregatesFilter<"File"> | string
+    public_id?: StringWithAggregatesFilter<"File"> | string
     uploaderId?: StringWithAggregatesFilter<"File"> | string
     uploadtime?: DateTimeWithAggregatesFilter<"File"> | Date | string
     downloadCount?: IntWithAggregatesFilter<"File"> | number
     folderId?: StringNullableWithAggregatesFilter<"File"> | string | null
     home?: BoolWithAggregatesFilter<"File"> | boolean
+    url?: StringWithAggregatesFilter<"File"> | string
+    resource_type?: StringWithAggregatesFilter<"File"> | string
   }
 
   export type FolderWhereInput = {
@@ -6133,11 +6190,14 @@ export namespace Prisma {
   export type FileCreateInput = {
     id?: string
     originalname: string
-    filename: string
     size: number
+    asset_id: string
+    public_id: string
     uploadtime?: Date | string
     downloadCount?: number
     home?: boolean
+    url: string
+    resource_type: string
     uploader: UserCreateNestedOneWithoutFileInput
     Folder?: FolderCreateNestedOneWithoutFilesInput
   }
@@ -6145,23 +6205,29 @@ export namespace Prisma {
   export type FileUncheckedCreateInput = {
     id?: string
     originalname: string
-    filename: string
     size: number
+    asset_id: string
+    public_id: string
     uploaderId: string
     uploadtime?: Date | string
     downloadCount?: number
     folderId?: string | null
     home?: boolean
+    url: string
+    resource_type: string
   }
 
   export type FileUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     originalname?: StringFieldUpdateOperationsInput | string
-    filename?: StringFieldUpdateOperationsInput | string
     size?: IntFieldUpdateOperationsInput | number
+    asset_id?: StringFieldUpdateOperationsInput | string
+    public_id?: StringFieldUpdateOperationsInput | string
     uploadtime?: DateTimeFieldUpdateOperationsInput | Date | string
     downloadCount?: IntFieldUpdateOperationsInput | number
     home?: BoolFieldUpdateOperationsInput | boolean
+    url?: StringFieldUpdateOperationsInput | string
+    resource_type?: StringFieldUpdateOperationsInput | string
     uploader?: UserUpdateOneRequiredWithoutFileNestedInput
     Folder?: FolderUpdateOneWithoutFilesNestedInput
   }
@@ -6169,47 +6235,59 @@ export namespace Prisma {
   export type FileUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     originalname?: StringFieldUpdateOperationsInput | string
-    filename?: StringFieldUpdateOperationsInput | string
     size?: IntFieldUpdateOperationsInput | number
+    asset_id?: StringFieldUpdateOperationsInput | string
+    public_id?: StringFieldUpdateOperationsInput | string
     uploaderId?: StringFieldUpdateOperationsInput | string
     uploadtime?: DateTimeFieldUpdateOperationsInput | Date | string
     downloadCount?: IntFieldUpdateOperationsInput | number
     folderId?: NullableStringFieldUpdateOperationsInput | string | null
     home?: BoolFieldUpdateOperationsInput | boolean
+    url?: StringFieldUpdateOperationsInput | string
+    resource_type?: StringFieldUpdateOperationsInput | string
   }
 
   export type FileCreateManyInput = {
     id?: string
     originalname: string
-    filename: string
     size: number
+    asset_id: string
+    public_id: string
     uploaderId: string
     uploadtime?: Date | string
     downloadCount?: number
     folderId?: string | null
     home?: boolean
+    url: string
+    resource_type: string
   }
 
   export type FileUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     originalname?: StringFieldUpdateOperationsInput | string
-    filename?: StringFieldUpdateOperationsInput | string
     size?: IntFieldUpdateOperationsInput | number
+    asset_id?: StringFieldUpdateOperationsInput | string
+    public_id?: StringFieldUpdateOperationsInput | string
     uploadtime?: DateTimeFieldUpdateOperationsInput | Date | string
     downloadCount?: IntFieldUpdateOperationsInput | number
     home?: BoolFieldUpdateOperationsInput | boolean
+    url?: StringFieldUpdateOperationsInput | string
+    resource_type?: StringFieldUpdateOperationsInput | string
   }
 
   export type FileUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     originalname?: StringFieldUpdateOperationsInput | string
-    filename?: StringFieldUpdateOperationsInput | string
     size?: IntFieldUpdateOperationsInput | number
+    asset_id?: StringFieldUpdateOperationsInput | string
+    public_id?: StringFieldUpdateOperationsInput | string
     uploaderId?: StringFieldUpdateOperationsInput | string
     uploadtime?: DateTimeFieldUpdateOperationsInput | Date | string
     downloadCount?: IntFieldUpdateOperationsInput | number
     folderId?: NullableStringFieldUpdateOperationsInput | string | null
     home?: BoolFieldUpdateOperationsInput | boolean
+    url?: StringFieldUpdateOperationsInput | string
+    resource_type?: StringFieldUpdateOperationsInput | string
   }
 
   export type FolderCreateInput = {
@@ -6450,13 +6528,16 @@ export namespace Prisma {
   export type FileCountOrderByAggregateInput = {
     id?: SortOrder
     originalname?: SortOrder
-    filename?: SortOrder
     size?: SortOrder
+    asset_id?: SortOrder
+    public_id?: SortOrder
     uploaderId?: SortOrder
     uploadtime?: SortOrder
     downloadCount?: SortOrder
     folderId?: SortOrder
     home?: SortOrder
+    url?: SortOrder
+    resource_type?: SortOrder
   }
 
   export type FileAvgOrderByAggregateInput = {
@@ -6467,25 +6548,31 @@ export namespace Prisma {
   export type FileMaxOrderByAggregateInput = {
     id?: SortOrder
     originalname?: SortOrder
-    filename?: SortOrder
     size?: SortOrder
+    asset_id?: SortOrder
+    public_id?: SortOrder
     uploaderId?: SortOrder
     uploadtime?: SortOrder
     downloadCount?: SortOrder
     folderId?: SortOrder
     home?: SortOrder
+    url?: SortOrder
+    resource_type?: SortOrder
   }
 
   export type FileMinOrderByAggregateInput = {
     id?: SortOrder
     originalname?: SortOrder
-    filename?: SortOrder
     size?: SortOrder
+    asset_id?: SortOrder
+    public_id?: SortOrder
     uploaderId?: SortOrder
     uploadtime?: SortOrder
     downloadCount?: SortOrder
     folderId?: SortOrder
     home?: SortOrder
+    url?: SortOrder
+    resource_type?: SortOrder
   }
 
   export type FileSumOrderByAggregateInput = {
@@ -6966,23 +7053,29 @@ export namespace Prisma {
   export type FileCreateWithoutUploaderInput = {
     id?: string
     originalname: string
-    filename: string
     size: number
+    asset_id: string
+    public_id: string
     uploadtime?: Date | string
     downloadCount?: number
     home?: boolean
+    url: string
+    resource_type: string
     Folder?: FolderCreateNestedOneWithoutFilesInput
   }
 
   export type FileUncheckedCreateWithoutUploaderInput = {
     id?: string
     originalname: string
-    filename: string
     size: number
+    asset_id: string
+    public_id: string
     uploadtime?: Date | string
     downloadCount?: number
     folderId?: string | null
     home?: boolean
+    url: string
+    resource_type: string
   }
 
   export type FileCreateOrConnectWithoutUploaderInput = {
@@ -7047,13 +7140,16 @@ export namespace Prisma {
     NOT?: FileScalarWhereInput | FileScalarWhereInput[]
     id?: StringFilter<"File"> | string
     originalname?: StringFilter<"File"> | string
-    filename?: StringFilter<"File"> | string
     size?: IntFilter<"File"> | number
+    asset_id?: StringFilter<"File"> | string
+    public_id?: StringFilter<"File"> | string
     uploaderId?: StringFilter<"File"> | string
     uploadtime?: DateTimeFilter<"File"> | Date | string
     downloadCount?: IntFilter<"File"> | number
     folderId?: StringNullableFilter<"File"> | string | null
     home?: BoolFilter<"File"> | boolean
+    url?: StringFilter<"File"> | string
+    resource_type?: StringFilter<"File"> | string
   }
 
   export type FolderUpsertWithWhereUniqueWithoutUploaderInput = {
@@ -7191,23 +7287,29 @@ export namespace Prisma {
   export type FileCreateWithoutFolderInput = {
     id?: string
     originalname: string
-    filename: string
     size: number
+    asset_id: string
+    public_id: string
     uploadtime?: Date | string
     downloadCount?: number
     home?: boolean
+    url: string
+    resource_type: string
     uploader: UserCreateNestedOneWithoutFileInput
   }
 
   export type FileUncheckedCreateWithoutFolderInput = {
     id?: string
     originalname: string
-    filename: string
     size: number
+    asset_id: string
+    public_id: string
     uploaderId: string
     uploadtime?: Date | string
     downloadCount?: number
     home?: boolean
+    url: string
+    resource_type: string
   }
 
   export type FileCreateOrConnectWithoutFolderInput = {
@@ -7389,12 +7491,15 @@ export namespace Prisma {
   export type FileCreateManyUploaderInput = {
     id?: string
     originalname: string
-    filename: string
     size: number
+    asset_id: string
+    public_id: string
     uploadtime?: Date | string
     downloadCount?: number
     folderId?: string | null
     home?: boolean
+    url: string
+    resource_type: string
   }
 
   export type FolderCreateManyUploaderInput = {
@@ -7408,34 +7513,43 @@ export namespace Prisma {
   export type FileUpdateWithoutUploaderInput = {
     id?: StringFieldUpdateOperationsInput | string
     originalname?: StringFieldUpdateOperationsInput | string
-    filename?: StringFieldUpdateOperationsInput | string
     size?: IntFieldUpdateOperationsInput | number
+    asset_id?: StringFieldUpdateOperationsInput | string
+    public_id?: StringFieldUpdateOperationsInput | string
     uploadtime?: DateTimeFieldUpdateOperationsInput | Date | string
     downloadCount?: IntFieldUpdateOperationsInput | number
     home?: BoolFieldUpdateOperationsInput | boolean
+    url?: StringFieldUpdateOperationsInput | string
+    resource_type?: StringFieldUpdateOperationsInput | string
     Folder?: FolderUpdateOneWithoutFilesNestedInput
   }
 
   export type FileUncheckedUpdateWithoutUploaderInput = {
     id?: StringFieldUpdateOperationsInput | string
     originalname?: StringFieldUpdateOperationsInput | string
-    filename?: StringFieldUpdateOperationsInput | string
     size?: IntFieldUpdateOperationsInput | number
+    asset_id?: StringFieldUpdateOperationsInput | string
+    public_id?: StringFieldUpdateOperationsInput | string
     uploadtime?: DateTimeFieldUpdateOperationsInput | Date | string
     downloadCount?: IntFieldUpdateOperationsInput | number
     folderId?: NullableStringFieldUpdateOperationsInput | string | null
     home?: BoolFieldUpdateOperationsInput | boolean
+    url?: StringFieldUpdateOperationsInput | string
+    resource_type?: StringFieldUpdateOperationsInput | string
   }
 
   export type FileUncheckedUpdateManyWithoutUploaderInput = {
     id?: StringFieldUpdateOperationsInput | string
     originalname?: StringFieldUpdateOperationsInput | string
-    filename?: StringFieldUpdateOperationsInput | string
     size?: IntFieldUpdateOperationsInput | number
+    asset_id?: StringFieldUpdateOperationsInput | string
+    public_id?: StringFieldUpdateOperationsInput | string
     uploadtime?: DateTimeFieldUpdateOperationsInput | Date | string
     downloadCount?: IntFieldUpdateOperationsInput | number
     folderId?: NullableStringFieldUpdateOperationsInput | string | null
     home?: BoolFieldUpdateOperationsInput | boolean
+    url?: StringFieldUpdateOperationsInput | string
+    resource_type?: StringFieldUpdateOperationsInput | string
   }
 
   export type FolderUpdateWithoutUploaderInput = {
@@ -7469,12 +7583,15 @@ export namespace Prisma {
   export type FileCreateManyFolderInput = {
     id?: string
     originalname: string
-    filename: string
     size: number
+    asset_id: string
+    public_id: string
     uploaderId: string
     uploadtime?: Date | string
     downloadCount?: number
     home?: boolean
+    url: string
+    resource_type: string
   }
 
   export type FolderCreateManyParentFolderInput = {
@@ -7488,34 +7605,43 @@ export namespace Prisma {
   export type FileUpdateWithoutFolderInput = {
     id?: StringFieldUpdateOperationsInput | string
     originalname?: StringFieldUpdateOperationsInput | string
-    filename?: StringFieldUpdateOperationsInput | string
     size?: IntFieldUpdateOperationsInput | number
+    asset_id?: StringFieldUpdateOperationsInput | string
+    public_id?: StringFieldUpdateOperationsInput | string
     uploadtime?: DateTimeFieldUpdateOperationsInput | Date | string
     downloadCount?: IntFieldUpdateOperationsInput | number
     home?: BoolFieldUpdateOperationsInput | boolean
+    url?: StringFieldUpdateOperationsInput | string
+    resource_type?: StringFieldUpdateOperationsInput | string
     uploader?: UserUpdateOneRequiredWithoutFileNestedInput
   }
 
   export type FileUncheckedUpdateWithoutFolderInput = {
     id?: StringFieldUpdateOperationsInput | string
     originalname?: StringFieldUpdateOperationsInput | string
-    filename?: StringFieldUpdateOperationsInput | string
     size?: IntFieldUpdateOperationsInput | number
+    asset_id?: StringFieldUpdateOperationsInput | string
+    public_id?: StringFieldUpdateOperationsInput | string
     uploaderId?: StringFieldUpdateOperationsInput | string
     uploadtime?: DateTimeFieldUpdateOperationsInput | Date | string
     downloadCount?: IntFieldUpdateOperationsInput | number
     home?: BoolFieldUpdateOperationsInput | boolean
+    url?: StringFieldUpdateOperationsInput | string
+    resource_type?: StringFieldUpdateOperationsInput | string
   }
 
   export type FileUncheckedUpdateManyWithoutFolderInput = {
     id?: StringFieldUpdateOperationsInput | string
     originalname?: StringFieldUpdateOperationsInput | string
-    filename?: StringFieldUpdateOperationsInput | string
     size?: IntFieldUpdateOperationsInput | number
+    asset_id?: StringFieldUpdateOperationsInput | string
+    public_id?: StringFieldUpdateOperationsInput | string
     uploaderId?: StringFieldUpdateOperationsInput | string
     uploadtime?: DateTimeFieldUpdateOperationsInput | Date | string
     downloadCount?: IntFieldUpdateOperationsInput | number
     home?: BoolFieldUpdateOperationsInput | boolean
+    url?: StringFieldUpdateOperationsInput | string
+    resource_type?: StringFieldUpdateOperationsInput | string
   }
 
   export type FolderUpdateWithoutParentFolderInput = {

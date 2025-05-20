@@ -30,7 +30,17 @@ export const createFolderInFolder = async (id, name, uploaderId) => {
     });
 };
 
-export const uploadFileInFolder = async (id, originalname, filename, size, uploaderId) => {
+export const uploadFileInFolder = async (
+    {
+        id, 
+        originalname, 
+        asset_id, 
+        public_id, 
+        size, 
+        uploaderId,
+        url,
+        resource_type
+    }) => {
     await prisma.folder.update({
         where: {
             id,
@@ -39,10 +49,13 @@ export const uploadFileInFolder = async (id, originalname, filename, size, uploa
             files: {
                 create: {
                     originalname,
-                    filename,
                     size,
                     uploaderId,
                     home: false,
+                    asset_id,
+                    public_id,
+                    url,
+                    resource_type,
                 },
             },
         },
