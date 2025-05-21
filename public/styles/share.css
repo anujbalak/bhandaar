@@ -1,0 +1,38 @@
+dialog {
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1em;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(219, 194, 165);
+    font-size: 1.3rem;
+    box-shadow: 0 0 3px black;
+}
+
+dialog form {
+    display: grid;
+    gap: 10px;
+}
+
+.link-container.code {
+    background-color: rgb(230, 222, 214);
+    padding: 8px;
+    font-style: italic;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: copy;
+    display: grid;
+    gap: 1em;
+    grid-template-columns: auto;
+}
+
+code {
+    opacity: 70%;   
+}
+
+.copied {
+    color: #0066da;
+}

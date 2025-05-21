@@ -54,7 +54,7 @@ hr {
     gap: 1em;
     align-items: center;
     justify-items: left;
-    grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
 }
 
 .structure > * {
@@ -87,4 +87,8 @@ hr {
 
 .folder-delete {
     grid-column: 5 / 6;
+}
+
+.share.folder {
+    grid-column: 4/ 5;
 }

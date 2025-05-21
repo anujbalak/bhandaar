@@ -23,6 +23,7 @@ import folderRouter from './routes/folderRouter.js';
 import { getAllFolders } from './db/folderQueries.js';
 import createRouter from './routes/createRouter.js';
 import { makeNav } from './controllers/folderController.js';
+import shareRouter from './routes/shareRouter.js';
 
 const __filename = url.fileURLToPath(import.meta.url)
 export const __dirname = path.dirname(__filename);
@@ -83,6 +84,7 @@ app.use('/download', downloadRouter);
 app.use('/delete', deleteRouter);
 app.use('/create', createRouter);
 app.use('/folder', folderRouter);
+app.use('/share', shareRouter);
 
 
 app.use('/logout', logoutRouter);

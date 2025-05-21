@@ -1,5 +1,6 @@
 <%- include('../partials/header', {title: 'Home'}) %>
     <% if (locals.user) { %>
+        <%- include('../partials/shareDialog') %> 
         <%- include ('../partials/drive') %> 
     <% } %> 
 <%- include('../partials/footer') %>

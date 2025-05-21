@@ -9,6 +9,11 @@
     <div class="folder-create-time">
         <span><%= folder.createdAt.toLocaleDateString() %> </span>
     </div>
+    <div class="share folder">
+        <form action="/share/<%= folder.id %> " method="get">
+            <button class="normal" type="submit">Share</button>
+        </form>
+    </div>
     <div class="folder-delete">
         <form action="/delete/folder/<%= folder.id %>" method="post">
             <button type="submit" class="none">

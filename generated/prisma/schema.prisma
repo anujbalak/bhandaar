@@ -58,4 +58,13 @@ model Folder {
   folders        Folder[] @relation("FolderDetails")
   uploader       User     @relation(fields: [uploaderId], references: [id])
   uploaderId     String
+
+  Share Share[]
+}
+
+model Share {
+  id        String   @id @default(uuid())
+  folder    Folder   @relation(fields: [folderId], references: [id])
+  folderId  String
+  expiresAt DateTime @default(now())
 }

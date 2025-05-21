@@ -1,0 +1,40 @@
+
+
+<% if (locals.showShareDialog) { %>
+  <dialog open class="share-dialog">
+      <form action="/share/<%= locals.id %>" method="post">
+          <button onclick="close()" class="close btn none"><%- include('../icons/close.svg') %> </button>
+          <p>Share this folder</p>
+          <div class="link-container code">
+            <code class="code" onclick="copy()"><%= locals.link %> </code>
+          </div>
+          <label for="days">For how many days the link will be validate?</label>
+          <input type="text" name="days" id="days" value="5" autofocus>
+          <%- include('../partials/error', {error_path: 'days'}) %> 
+          <button class="accent" type="submit" onclick="copy()">Share</button>
+      </form>
+    </dialog>  
+<% } %> 
+
+<script>
+  function copy() {
+    const container = document.querySelector('.link-container.code')
+    const text = document.querySelector('code')
+    let copiedText = document.querySelector('span.copied')
+    // text.select()
+    // text.setSelectionRange(0, 999999)
+    
+    navigator.clipboard.writeText(text.textContent)
+    if (copiedText === null) {
+      const copiedText = document.createElement('span')
+      copiedText.innerText = 'copied!';
+      copiedText.className = 'copied'
+      container.append(copiedText);
+    }
+  }
+
+  function close() {
+    const element = document.querySelector('dialog.share-dialog')
+    element.close();
+  }
+</script>

@@ -28,6 +28,14 @@ button:focus, button:hover {
     border-radius: 10px;
 }
 
+.close.btn {
+    all: unset;
+    position: absolute;
+    right: -5%;
+    top: -8%;
+    padding: 8px 10px;
+}
+
 .none {
     all: none;
     appearance: none;
