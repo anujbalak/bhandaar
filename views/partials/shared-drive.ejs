@@ -1,0 +1,35 @@
+<div class="drive">
+    <div class="drive-header">
+        <%- include('./shared-drive-nav.ejs') %> 
+    </div>
+    <hr>
+    <div class="drive-content">
+        <div class="structure layout shared">
+            <div class="file-name">
+                Name
+            </div>
+            <div class="file-size">
+                Size
+            </div>
+            <div class="file-upload-time">
+                Uploaded Time
+            </div>
+            <!-- <div class="file-download-count">
+                Total downloads
+            </div> -->
+            <div class="file-download">
+                Download 
+            </div>
+        </div>
+        <% if (locals.folders) { %>
+            <% folders.forEach(folder => { %>
+               <%- include('./shared-folder.ejs', {folder}) %>  
+            <% }); %>     
+        <% } %> 
+        <% if (locals.files) { %>
+            <% files.forEach(file => { %>
+               <%- include('../partials/shared-file.ejs', {file}) %>  
+            <% }); %>     
+        <% } %> 
+    </div>
+</div>

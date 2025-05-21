@@ -57,7 +57,6 @@ export const postUpload = [
 
             if (currentFolder) {
                 const cldRes = await handleFolderUpload(dataURL, currentFolder);
-                console.log(cldRes);
                 await uploadFileInFolder(
                     {
                         id:currentFolder.id, 
@@ -73,7 +72,6 @@ export const postUpload = [
                 return;
             }
             const cldRes = await handleHomeUpload(dataURL);
-            console.log(cldRes);
 
             await addFile(
                 {

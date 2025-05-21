@@ -36,3 +36,8 @@ code {
 .copied {
     color: #0066da;
 }
+
+
+.structure.shared {
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+}

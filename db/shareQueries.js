@@ -21,16 +21,19 @@ export const getSharedLink = async ({id, folderId}) => {
             OR: [
                 {
                     id: {
-                        equals: id,
+                        contains: id,
                     },
                 },
                 {
                     folderId: {
-                        equals: folderId
+                        contains: folderId
                     }
                 },
             ],
         },
+        include: {
+            folder: true,
+        }
     });
     return res;
 };
@@ -44,12 +47,18 @@ export const deleteSharedLink = async (id) => {
 }
 
 export const deleteAllLinks = async () => {
-    const result = prisma.share.deleteMany();
+    const result = await prisma.share.deleteMany();
     console.log(result);
 
     return result
 }
 
+
+export const getAllLinks = async () => {
+    const result = await prisma.share.findMany();
+    console.log(result);
+    return result
+}
 
 export const updateSharedLink = async (id, date) => {
     await prisma.share.update({
@@ -61,3 +70,4 @@ export const updateSharedLink = async (id, date) => {
         }
     })
 }
+

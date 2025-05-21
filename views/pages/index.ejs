@@ -1,6 +1,17 @@
 <%- include('../partials/header', {title: 'Home'}) %>
-    <% if (locals.user) { %>
+    <% if (locals.user && !locals.sharedPage && !locals.expired) { %>
         <%- include('../partials/shareDialog') %> 
         <%- include ('../partials/drive') %> 
+    <% } %>
+    <% if (locals.sharedPage) { %>
+        <%- include('../partials/shared-drive') %> 
+    <% } %> 
+    <% if (locals.expired) { %>
+        <div class="error-container">
+            <p class="error">The following link is expired</p>
+            <h2 class="refresh">
+                <a href="/">Go to Home</a>
+            </h2> 
+        </div>
     <% } %> 
 <%- include('../partials/footer') %>

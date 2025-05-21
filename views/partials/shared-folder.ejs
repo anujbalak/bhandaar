@@ -1,0 +1,12 @@
+<div class="folder structure shared">
+    <a href="/share/<%= locals.sharedId%> /folder/<%= folder.id %>">
+        <div class="folder-name">
+            <%- include('../icons/folder.svg') %> 
+            <span><%= folder.name %></span>
+            <form action="/edit/" method="get"></form>
+        </div>
+    </a>
+    <div class="folder-create-time">
+        <span><%= folder.createdAt.toLocaleDateString() %> </span>
+    </div>
+</div>

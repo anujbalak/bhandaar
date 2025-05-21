@@ -85,6 +85,10 @@ hr {
     border-radius: 10px;
 }
 
+.folder-create-time {
+    grid-column: 3 / 4;
+}
+
 .folder-delete {
     grid-column: 5 / 6;
 }

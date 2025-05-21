@@ -10,7 +10,7 @@
         <span><%= folder.createdAt.toLocaleDateString() %> </span>
     </div>
     <div class="share folder">
-        <form action="/share/<%= folder.id %> " method="get">
+        <form action="/share/create/<%= folder.id %> " method="get">
             <button class="normal" type="submit">Share</button>
         </form>
     </div>

@@ -59,6 +59,7 @@ app.use((req, res, next) => {
 app.use(async (req, res, next) => {
     if (req.user) {
         const folder = res.app.get('folder')
+        console.log(folder);
         let folders = await getAllFolders(req.user.id);
         let files = await getAllFiles({uploaderId: req.user.id})
         if (folder) {
@@ -104,8 +105,8 @@ passport.deserializeUser(async (id, done) => {
     }
 })
 
-app.use((err, req, res, next) => {
-    res.render('pages/errors', {error: err});
+app.use((req, res, next) => {
+    res.status(404).render('pages/errors', {error: {message: "That's fishy!"}});
 })
 
 const port = process.env.PORT

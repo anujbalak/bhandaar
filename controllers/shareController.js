@@ -1,6 +1,7 @@
 import { addSharedLink, getSharedLink, updateSharedLink } from "../db/shareQueries.js";
 import 'dotenv/config'
 import { body, validationResult } from "express-validator";
+import { getFolder } from "../db/folderQueries.js";
 
 const daysValidationChain = () =>
     body('days').trim()
@@ -77,4 +78,74 @@ function addDays(days) {
     let result = new Date();
     result.setDate(result.getDate() + days)
     return result;
+}
+
+export const getSharedPage = async (req, res) => {
+    try {
+        const {id} = req.params;
+        const sharedLink = await getSharedLink({id})
+        if (!sharedLink) {
+            return  res.redirect('/')
+        }
+        const expiryDate = sharedLink.expiresAt;
+        const date = new Date();
+
+        if (expiryDate.getTime() <= date.getTime()) {
+            return res.render('pages/index', {
+                expired: true,
+            })
+        }
+    
+        const folder = await getFolder(sharedLink.folderId)
+        res.render('pages/index', {
+            sharedPage: true,
+            sharedId: id,
+            folders: [folder],
+            files: [],
+            nav: [],
+        })
+    } catch (error) {
+        console.error(error);
+        res.render('pages/errors', {
+            error
+        })
+    }
+}
+
+export const getSharedFolder = async (req, res) => {
+    try {
+        const { id, folderId} = req.params;
+
+        // const sharedLink = await getSharedLink({id})
+        // console.log(id)
+        // console.log(sharedLink)
+        // if (!sharedLink) {
+        //     return  res.redirect('/')
+        // }
+        // const expiryDate = sharedLink.expiresAt;
+        // const date = new Date();
+        
+        // if (expiryDate.getTime() <= date.getTime()) {
+        //     return res.render('pages/index', {
+        //         expired: true,
+        //     })
+        // }
+
+        const folder = await getFolder(folderId)
+        res.locals.folder = folder;
+        res.app.set('folder', folder);
+        
+        res.render('pages/index', {
+            sharedPage: true,
+            sharedId: id,
+            folders: folder.folders,
+            files: folder.files,
+        })
+    } catch (error) {
+        console.error(error);
+        res.render('pages/errors', {
+            error
+        })
+    }
+
 }

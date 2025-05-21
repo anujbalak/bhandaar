@@ -1,0 +1,30 @@
+<div class="file structure shared">
+    <div class="file-name">
+        <%- include('../icons/file.svg') %> 
+        <span><%= file.originalname %> </span>
+        <form action="/edit/" method="get"></form>
+    </div>
+    <div class="file-size">
+        <% if (file.size < 1000) { %>
+            <span><%= file.size.toPrecision(4) %> b </span>
+        <% } else if (file.size > 1000 && file.size < 1000*1000) {%>
+            <span><%= (file.size / 1000).toPrecision(4) %> kb</span>
+        <% } else { %>
+            <span><%= (file.size / 1000*1000).toPrecision(4) %> mb</span>    
+        <% } %> 
+    </div>
+    <div class="file-upload-time">
+        <span><%= file.uploadtime.toLocaleDateString() %> </span>
+    </div>
+    <!-- <div class="file-download-count">
+        <span><%## file.downloadCount %></span>
+    </div> -->
+    <div class="file-download">
+        <!-- <form action="/download/<%= file.id %>" method="get">
+            <button type="submit" class="none">
+                <%## include('../icons/download.svg') %> 
+            </button>
+        </form> -->
+        <a href="<%= file.url %> "><%- include('../icons/download.svg') %> </a>
+    </div>
+</div>

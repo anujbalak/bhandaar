@@ -2,8 +2,12 @@
     <div class="error-container">
         <h2>Looks like you got an error</h2>
         <% if (locals.error) { %>
-            <p class="error">Message: <%= error.message %></p>
-            <p class="error">code: <%= error.http_code %></p>    
+            <% if (error.message) {%>
+                <p class="error">Message: <%= error.message %></p>    
+            <% } %> 
+            <% if (error.http_code) {%>
+                <p class="error">code: <%= error.http_code %></p>    
+            <% } %>
         <% } %>
         <h2 class="refresh">
             <a href="/">Refresh</a>
